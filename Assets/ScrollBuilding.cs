@@ -25,7 +25,6 @@ public class ScrollBuilding : MonoBehaviour {
 
             textureToAnimate = backgroundMeshRenderer.material;
         }
-        float startOffset = Random.Range(0, 1);
     }
 
     protected void Update()
