@@ -10,6 +10,9 @@ public class MainControl : MonoBehaviour {
 
     public AudioSource dataClick;
 
+    float targetVolume;
+    public float onVolume;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -17,6 +20,7 @@ public class MainControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        gameObject.GetComponent<AudioSource>().volume = Mathf.Lerp(gameObject.GetComponent<AudioSource>().volume, targetVolume, 0.1f);
 	
 	}
 
@@ -53,5 +57,16 @@ public class MainControl : MonoBehaviour {
     public void DataClickSound()
     {
         dataClick.Play();
+    }
+
+    public void startMusic()
+    {
+        targetVolume = onVolume;
+        gameObject.GetComponent<AudioSource>().Play();
+    }
+    public void stopMusic()
+    {
+        targetVolume = 0;
+        gameObject.GetComponent<AudioSource>().Play();
     }
 }
